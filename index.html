@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeManager</title>
+    <link rel="icon" href="TMlogo_small.png" type="image/icon type">
+    <!-- Импорт CSS -->
+    <link rel="stylesheet" href="index.css">
+    <!-- Jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- PT Sans  -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Osawld -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Навигация -->
+    <div id="menu-bar">
+        <div id="menu" onclick="onClickMenu()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+        </div>
+        <ul class="nav" id="nav">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#adding_events">Добавть заметку</a></li>
+            <li><a href="#notes-card">Мои заметки</a></li>
+        </ul>
+    </div>
+    <div class="menu-bg" id="menu-bg"></div>
+
+    <!-- Main -->
+    <section id="navbar">
+        <div class="topnav"> 
+            <a href="index.html">
+                <img src="TimeManagerlogo.png" alt="" height="80px" width="250px">
+            </a>
+            <div class="topnav-right">
+                <a href="#">Главная</a>
+                <a href="#adding_events">Добавить</a>
+                <a href="#notes-card">Мои заметки</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heading -->
+    <div id="headings">
+        <div id="heading_text">
+            <h1
+                style="font-size: 40px; line-height: 1.2; color: white; font-family: Oswald, sans-serif; margin: 5px;">
+                <b style="color: #ffffff;">Добро пожаловать в TimeManager! </b>Здесь вы можете планировать распорядок своего дня.</h1>
+            <p
+                style="color: whitesmoke; line-height: 1.5; font-size: 22px; font-family: 'PT Sans', sans-serif; margin: 10px;">
+                Добавляйте заметки, события или встречи.</p>
+            <!-- <a href="#adding_notes">Начать!</a> -->
+            <button onclick="location.href='#adding_events'" type="button">
+                Начать!</button>
+        </div>
+        <div id="image">
+            <img src="Processing.gif" alt="">
+        </div>
+    </div>
+
+
+    <!-- Добавление заметок -->
+
+    <section id="adding_events">
+
+        <div class="title">
+            <h1>Добрый день!</h1>
+            <p>Добро пожаловать в TimeManager! Здесь вы можете планировать распорядок своего дня. </p>
+            <a href="#notes-card">Мои заметки</a>
+        </div>
+
+        <div id="add_event">
+            <h2 style="color: white; font-family: PT Sans, sans-serif; font-size: 30px;">Добавить заметку</h2>
+
+            <label for="notes">Заметки</label>
+            <input type="radio" id="note1" onclick="removeDueDate()" name="notes" checked>
+            <label for="events">События</label>
+            <input type="radio" id="event1" onclick="displayDueDate()" name="notes">
+            <label for="meets">Встречи</label>
+            <input type="radio" id="meet1" onclick="displayDueDate()" name="notes"><br>
+
+
+            <label for="imp">Важное</label>
+            <input style="margin: 5px 2px;" type="checkbox" id="note-imp" name="imp">
+
+            <label for="text">Срочное</label>
+            <input style="margin: 5px 2px;" type="checkbox" id="note-urgent" name="urgent"><br>
+
+
+            <input
+                style="padding: 5px; margin: 7px 0px; border-radius: 4px; border: 1px solid grey; font-family: 'PT Sans', sans-serif; width: 60%;"
+                type="text" name="title" id="noteTitle" placeholder="Ваш заголовок"><br>
+
+            <textarea style="padding: 5px; margin: 7px 0px; border-radius: 4px; font-family: 'PT Sans', sans-serif;"
+                name="text" id="noteText" placeholder="Ваш текст"></textarea><br>
+
+            <div id="due_date" style="visibility: hidden;">
+                <label for="date_time">Дата:</label>
+                <input
+                    style="margin: 5px 2px; color: grey; font-family: 'PT Sans', cursive; font-size: 14px; border-radius: 4px; border: none;"
+                    type="datetime-local" id="date_time" name="date_time">
+            </div>
+
+            <button class="button" id="addNote">Добавить</button>
+
+        </div>
+
+    </section>
+
+    <!-- Показ заметок -->
+
+    <div id="notes-card">
+        <h1 style="margin-left: 5px; color: white; font-family: 'PT Sans', cursive; font-size: 30px;">Ваши заметки</h1>
+        <input type="text" class="search-box" id="notes_search" placeholder="Поиск по загаловку/описанию">
+        <div class="empty" id="emptyNotes" class="mt-3">
+            <h2>
+            Добавить</h2>
+            <h4 style="color: grey;">Нажмите <a href="#add_note">сюда</a> чтобы добавить заметку</h4>
+            </div>
+
+        <div id="notes">
+            <!-- index.js -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <h2>Mikhail Ambrosov KE-318</KE-318></h2>
+        <p>&#169;TimeManager 2024.</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
